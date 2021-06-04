@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style>
+		#two{
+		padding:70px;
+		padding-top: 40px;
+		background-color: #80ffbf;
+		width: 20%;
+		
+		margin-top: 50px;
+		margin-bottom:10px;
+		margin-left: 340px;
+		border-radius: 15px;  
+		}
+		#two:hover{
+			an
+		background-color: #ffcccc;
+	}
+	body{ 
+    opacity: 0;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s; 
+}
+	</style>
+</head>
+<body onload="document.body.style.opacity='1'">
+	
+	<div id="two">
+		<h1 id="fname"></h1><h1 id="lname"></h1>
+		<img id="avatar" src="" style="width: 200px;height:200px;"/>
+		<p id="id"></p>
+		<p id="email"></p>
+	</div>
+
+</body>
+
+<script>
+	fetch('https://reqres.in/api/users/4').then((apidata
+		) =>{
+		
+		return apidata.json();
+	}).then((actualdata) =>{
+		
+		var avatar=actualdata.data.avatar;
+		var fname=actualdata.data.first_name;
+		var lname=actualdata.data.last_name;
+		var id=actualdata.data.id;
+	    var email=actualdata.data.email;
+	    document.getElementById('fname').innerHTML=fname;
+	    document.getElementById('lname').innerHTML=lname;
+	    document.getElementById('avatar').src=avatar;
+	    document.getElementById('id').innerHTML=id;
+	    document.getElementById('email').innerHTML=email;
+	}).catch((error) =>{
+		console.log(error);
+	});
+</script>
+</html>
